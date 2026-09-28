@@ -1,0 +1,60 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: soundtrack-agent-web
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.next
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=development
+      - WATCHPACK_POLLING=true
+      - DATABASE_URL=postgresql://soundtrack:soundtrack@postgres:5432/soundtrack_agent
+      - ES_API_BASE_URL=http://es-mock:4010
+    depends_on:
+      postgres:
+        condition: service_healthy
+      es-mock:
+        condition: service_healthy
+
+  es-mock:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: soundtrack-agent-es-mock
+    command: ["pnpm", "mock"]
+    ports:
+      - "4010:4010"
+    volumes:
+      - ./mock-es-api:/app/mock-es-api
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:4010/health || exit 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  postgres:
+    image: postgres:17-alpine
+    container_name: soundtrack-agent-db
+    environment:
+      POSTGRES_USER: soundtrack
+      POSTGRES_PASSWORD: soundtrack
+      POSTGRES_DB: soundtrack_agent
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U soundtrack -d soundtrack_agent"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  postgres-data:

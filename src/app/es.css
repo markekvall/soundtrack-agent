@@ -1,0 +1,378 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,400;0,8..144,500;0,8..144,600;1,8..144,500;1,8..144,600&family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap');
+
+/* NOTE: Sebenta (the official ES brand typeface) is a paid commercial font
+   not available on Google Fonts. As an interim substitute, this system uses
+   Roboto Serif — wide-set, traditional slab feel with tall ascenders and
+   refined italic terminals (closer to Sebenta than Roboto Slab or Bitter,
+   without Fraunces' display-y quirks). Once Sebenta-Regular.otf and
+   Sebenta-Medium.otf are uploaded into /fonts, swap the @font-face
+   declarations below to point at them and the substitute will fall away. */
+
+/* When real Sebenta files exist, uncomment:
+@font-face {
+  font-family: 'Sebenta';
+  src: url('fonts/Sebenta-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Sebenta';
+  src: url('fonts/Sebenta-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Sebenta';
+  src: url('fonts/Sebenta-RegularItalic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Sebenta';
+  src: url('fonts/Sebenta-MediumItalic.otf') format('opentype');
+  font-weight: 500;
+  font-style: italic;
+}
+*/
+
+:root {
+  /* ---------- Core Brand — Muted ---------- */
+  --es-fog:   #cfd6e5;
+  --es-stone: #9793a5;
+  --es-ecru:  #e4d9cf;
+  --es-moss:  #bfbda8;
+
+  /* ---------- Core Brand — Vibrant ---------- */
+  --es-pink:  #ff82c2;
+  --es-yellow:#ffda40;
+  --es-red:   #ff6138;
+  --es-azure: #20afff;
+
+  /* ---------- Core Brand — Neutrals ---------- */
+  --es-black:     #000000;
+  --es-off-black: #292c33;
+  --es-off-white: #f1f0eb;
+  --es-white:     #ffffff;
+
+  /* ---------- Extended (covers / product only) ---------- */
+  --es-neon-yellow:#d6f382;
+  --es-purple:     #bb76ff;
+  --es-mint:       #c4e7d1;
+  --es-green:      #5ad363;
+  --es-blue:       #6792ff;
+  --es-tan:        #dfd796;
+  --es-brown:      #a8954c;
+  --es-lavender:   #cfbdd2;
+  --es-rust:       #d6832b;
+  --es-dusty-pink: #f6d1d1;
+  --es-turquoise:  #91ceda;
+  --es-orange:     #ff9b26;
+
+  /* ---------- Semantic surfaces ---------- */
+  --bg:        var(--es-off-white);
+  --bg-alt:    var(--es-white);
+  --bg-dark:   var(--es-off-black);
+  --bg-darker: var(--es-black);
+
+  /* ---------- Semantic foreground ---------- */
+  --fg:        var(--es-off-black);   /* default body text */
+  --fg-strong: var(--es-black);
+  --fg-muted:  #5a5e6a;
+  --fg-on-dark:#ffffff;
+  --fg-on-dark-muted: #b6b9c2;
+
+  /* ---------- Borders ---------- */
+  --border-soft:    rgba(0,0,0,0.08);
+  --border-default: rgba(0,0,0,0.14);
+  --border-strong:  rgba(0,0,0,0.32);
+  --border-on-dark: rgba(255,255,255,0.14);
+
+  /* ---------- Typography families ---------- */
+  --font-display: 'Roboto Serif', 'Sebenta', 'Times New Roman', serif;  /* Sebenta substitute */
+  --font-body:    'Inter', Helvetica, Arial, sans-serif;
+  --font-cta:     'Poppins', 'Inter', Helvetica, Arial, sans-serif;
+
+  /* ---------- Type scale (display — Sebenta/Roboto Slab) ---------- */
+  --display-xxl: clamp(56px, 6.5vw, 112px);  /* Hero "You bring the idea." */
+  --display-xl:  clamp(44px, 4.6vw, 80px);   /* Section "Use music to find music." */
+  --display-l:   clamp(36px, 3.4vw, 56px);
+  --display-m:   clamp(28px, 2.6vw, 40px);
+  --display-s:   24px;
+
+  /* Body — Inter */
+  --body-l:  18px;
+  --body-m:  16px;
+  --body-s:  14px;
+  --body-xs: 12px;
+
+  /* Eyebrow / overline (Inter, uppercase, tracked) */
+  --eyebrow: 12px;
+
+  /* ---------- Tracking ---------- */
+  --track-display: -0.04em;   /* -3% to -6% */
+  --track-sub:     -0.03em;   /* -2% to -4% */
+  --track-body:    -0.015em;  /* -1% to -3% */
+  --track-eyebrow: 0.1em;
+
+  /* ---------- Leading ---------- */
+  --lead-display: 0.95;       /* 85–105% */
+  --lead-sub:     1.05;
+  --lead-body:    1.45;       /* 110–130% */
+
+  /* ---------- Spacing (16-unit grid) ---------- */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  24px;
+  --space-6:  32px;
+  --space-7:  48px;
+  --space-8:  64px;
+  --space-9:  96px;
+  --space-10: 128px;
+
+  /* Layout margins (~5% of short side) */
+  --margin-page-mobile:  20px;
+  --margin-page-default: 5vw;
+
+  /* ---------- Radii ---------- */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 8px;     /* default for buttons / cards */
+  --radius-lg: 12px;
+  --radius-pill: 999px;
+
+  /* ---------- Shadows ---------- */
+  --shadow-1: 0 1px 2px rgba(0,0,0,0.06);
+  --shadow-2: 0 4px 14px rgba(0,0,0,0.08);
+  --shadow-3: 0 12px 32px rgba(0,0,0,0.12);
+
+  /* ---------- Motion ---------- */
+  --ease-out:    cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast:   120ms;
+  --dur-base:   200ms;
+  --dur-slow:   400ms;
+}
+
+/* =====================================================================
+   SEMANTIC ELEMENT STYLES
+   Used as a baseline; override per surface as needed.
+   ===================================================================== */
+
+html, body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: var(--body-m);
+  line-height: var(--lead-body);
+  letter-spacing: var(--track-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, .display {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: var(--lead-display);
+  color: var(--fg-strong);
+  text-wrap: balance;
+  font-variation-settings: "opsz" 144, "wdth" 110;
+  word-spacing: 0.02em;
+}
+
+h1 { font-size: var(--display-xxl); }
+h2 { font-size: var(--display-xl); }
+h3 { font-size: var(--display-l); letter-spacing: var(--track-sub); line-height: var(--lead-sub); }
+h4 { font-size: var(--display-m); letter-spacing: var(--track-sub); line-height: var(--lead-sub); }
+h5 { font-family: var(--font-display); font-weight: 500; font-size: var(--display-s); letter-spacing: var(--track-sub); }
+
+em, .display em, h1 em, h2 em, h3 em {
+  font-style: italic;
+  font-weight: 500;
+}
+
+p { font-size: var(--body-m); line-height: var(--lead-body); color: var(--fg); }
+small, .body-s { font-size: var(--body-s); }
+.body-l { font-size: var(--body-l); line-height: 1.4; }
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--eyebrow);
+  font-weight: 500;
+  letter-spacing: var(--track-eyebrow);
+  text-transform: uppercase;
+  color: var(--fg-strong);
+}
+
+a { color: inherit; text-decoration: underline; text-underline-offset: 2px; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+
+/* =====================================================================
+   UTILITY: backgrounds + on-dark inversions
+   ===================================================================== */
+.bg-pink   { background: var(--es-pink); }
+.bg-yellow { background: var(--es-yellow); }
+.bg-red    { background: var(--es-red); }
+.bg-azure  { background: var(--es-azure); }
+.bg-fog    { background: var(--es-fog); }
+.bg-stone  { background: var(--es-stone); }
+.bg-ecru   { background: var(--es-ecru); }
+.bg-moss   { background: var(--es-moss); }
+.bg-off    { background: var(--es-off-white); }
+.bg-black  { background: var(--es-black); }
+.bg-off-black { background: var(--es-off-black); }
+
+.on-dark {
+  color: var(--fg-on-dark);
+}
+.on-dark h1, .on-dark h2, .on-dark h3, .on-dark h4, .on-dark h5 { color: var(--fg-on-dark); }
+.on-dark p { color: var(--fg-on-dark); }
+.on-dark .eyebrow { color: var(--fg-on-dark); }
+
+/* Highlight box around italic keywords (Sebenta Medium Italic) */
+.highlight {
+  display: inline-block;
+  padding: 0.05em 0.25em 0.1em;
+  background: var(--es-pink);
+  color: var(--es-black);
+  font-style: italic;
+  font-weight: 500;
+}
+.highlight--yellow { background: var(--es-yellow); }
+.highlight--azure  { background: var(--es-azure); }
+.highlight--white  { background: var(--es-white); }
+
+/* =====================================================================
+   STACK — the core ES card component
+   A colored or bordered rectangle on the grid. Always full-height of
+   its row; content is vertically centered with consistent rhythm.
+   Anatomy: eyebrow → title → body, separated by --space-5 (24px).
+   ===================================================================== */
+
+.es-stack {
+  border-radius: var(--radius-sm);
+  padding: var(--space-7) var(--space-6);   /* 48px 32px */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;                  /* vertical centering */
+  gap: var(--space-5);                      /* 24px between blocks */
+  min-height: 0;
+  height: 100%;                             /* fill row height in a grid */
+  /* Default text color: BLACK on every variant except --dark (see below).
+     Setting it on .es-stack means new variants inherit black until they
+     opt-in to white via a [data-on-dark] override. */
+  color: var(--es-black);
+}
+.es-stack h1, .es-stack h2, .es-stack h3, .es-stack h4,
+.es-stack p, .es-stack .eyebrow, .es-stack a {
+  color: inherit;
+}
+
+/* Reserve title height so body copy aligns across siblings of varying line counts.
+   Default: 3 lines at the headline line-height. Override per surface if needed. */
+.es-stack h3,
+.es-stack .es-stack-title {
+  min-height: calc(3 * 1em * 1.05);
+}
+
+/* Stack row: lays out 2–4 stacks side-by-side at equal height.
+   Always reserves space below itself for the slide chrome. */
+.es-stack-row {
+  display: grid;
+  gap: var(--space-5);
+  align-items: stretch;                     /* equal-height cards */
+}
+.es-stack-row--2 { grid-template-columns: repeat(2, 1fr); }
+.es-stack-row--3 { grid-template-columns: repeat(3, 1fr); }
+.es-stack-row--4 { grid-template-columns: repeat(4, 1fr); }
+
+/* On a slide, the stack row should expand to fill available vertical
+   space (so cards become tall) but leave a gutter before the chrome. */
+.es-stack-row--fill {
+  flex: 1 1 auto;
+  min-height: 0;
+  margin-bottom: var(--space-7);            /* 48px gutter to chrome */
+}
+
+/* Color variants */
+.es-stack--pink   { background: var(--es-pink); }
+.es-stack--yellow { background: var(--es-yellow); }
+.es-stack--azure  { background: var(--es-azure); }
+.es-stack--moss   { background: var(--es-moss); }
+.es-stack--ecru   { background: var(--es-ecru); }
+.es-stack--fog    { background: var(--es-fog); }
+.es-stack--white  { background: var(--es-white); }
+.es-stack--outlined {
+  background: var(--es-white);
+  border: 2px solid var(--es-black);
+}
+.es-stack--dark {
+  background: var(--es-off-black);
+  color: var(--es-off-white);
+}
+.es-stack--dark .eyebrow,
+.es-stack--dark h1, .es-stack--dark h2, .es-stack--dark h3, .es-stack--dark h4,
+.es-stack--dark p, .es-stack--dark a {
+  color: var(--es-off-white);
+}
+.es-stack--black {
+  background: var(--es-black);
+  color: var(--es-off-white);
+}
+.es-stack--black .eyebrow,
+.es-stack--black h1, .es-stack--black h2, .es-stack--black h3, .es-stack--black h4,
+.es-stack--black p, .es-stack--black a {
+  color: var(--es-off-white);
+}
+
+/* =====================================================================
+   SLIDE LAYOUT — chrome-safe scaffold
+   Use .es-slide as the slide root. It reserves 96px at the bottom for
+   the slide footer/chrome so .es-stack-row content can never overlap
+   the page number / footer logo.
+
+   Anatomy:
+     .es-slide
+       .es-slide-body        ← grows; holds title + .es-stack-row--fill
+       .es-slide-footer      ← reserved 96px chrome row (logo + page #)
+   ===================================================================== */
+
+.es-slide {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-7) var(--space-7) 0;   /* 48px sides+top, footer handles bottom */
+  box-sizing: border-box;
+  background: var(--es-off-white);
+  position: relative;
+}
+
+.es-slide-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);                         /* 32px between title and stack row */
+  padding-bottom: var(--space-7);              /* 48px gutter above chrome */
+}
+
+.es-slide-footer {
+  flex-shrink: 0;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-2);
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: var(--fg-muted);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.es-slide--dark { background: var(--es-off-black); color: var(--es-off-white); }
+.es-slide--dark .es-slide-footer { border-color: rgba(255, 255, 255, 0.12); color: rgba(255, 255, 255, 0.6); }

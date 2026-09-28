@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: var(--es-off-white);
+  color: var(--es-off-black);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* The .sa-app shell already declares height:100% + overflow:hidden in
+   soundtrack-agent.css. Giving html/body an actual height (not min-height)
+   anchors that chain so each pane scrolls independently instead of the
+   whole page growing. */
