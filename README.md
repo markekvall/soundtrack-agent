@@ -6,13 +6,13 @@ An LLM agent that turns a user's video brief ("30-second product teaser, upbeat,
 
 We'll spend about 40 minutes talking through this repo together. Please spend no more than an hour with it beforehand, and use whatever tools you normally would, AI assistants included. You don't need to write any code.
 
-Come ready to:
+To prepare yourself for tomorrow's discussion:
 
-- walk us through how a user's video brief turns into a shortlist of songs,
-- tell us what you'd change before this went to production with real users, and why,
-- talk about how you'd extend it.
+- How you'd think about turning a user's video brief into a shortlist of songs.
+- What you'd change before putting this in front of real users, and why.
+- Where you'd take it next and how you'd extend it.
 
-It's a prototype written quickly, so there's plenty to disagree with. We care more about how you reason about trade-offs than about a complete list.
+This is a prototype we put together quickly, so there's plenty here to question, challenge, or disagree with. We're less interested in a polished walkthrough or a complete list of ideas, and more interested in how you think through the trade-offs and arrive at your decisions.
 
 ## Running it
 
