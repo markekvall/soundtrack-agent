@@ -9,7 +9,7 @@ We'll spend about 40 minutes talking through this repo together. Please spend no
 Come ready to:
 
 - walk us through how a user's video brief turns into a shortlist of songs,
-- tell us what you'd change before this handled real users and real money, and why,
+- tell us what you'd change before this went to production with real users, and why,
 - talk about how you'd extend it.
 
 It's a prototype written quickly, so there's plenty to disagree with. We care more about how you reason about trade-offs than about a complete list.
